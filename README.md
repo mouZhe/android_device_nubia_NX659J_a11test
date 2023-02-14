@@ -1,45 +1,44 @@
-# android_device_xiaomi_umi_TWRP
-For building TWRP for Xiaomi Mi 10 / 10 Pro
+# android_device_nubia_NX659J_a11test
+For building TWRP for Nubia RedMagic 5G / 5S
 
-TWRP device tree for Xiaomi Mi 10 and Mi 10 Pro
+TWRP device tree for Nubia RedMagic 5G and RedMagic 5S
 
-Kernel and all blobs are extracted from [miui_CMI_21.9.17_1c6ed0daa1_11.0.zip](https://hugeota.d.miui.com/21.9.17/miui_CMI_21.9.17_1c6ed0daa1_11.0.zip) firmware.
+Kernel and all blobs are extracted from [NX659J-update.zip](http://romdownload.nubia.com/%E7%BA%A2%E9%AD%945G/V9.50/NX659J-update.zip) firmware.
 
-The Xiaomi Mi 10 (codenamed _"umi"_) and Xiaomi Mi 10 Pro (codenamed _"cmi"_) are high-end smartphones from Xiaomi.
+The Nubia RedMagic 5G (codenamed _"NX659J"_) and Nubia RedMagic 5S (codenamed _"NX659J_V1S or NX659J"_) are high-end gaming smartphones from Nubia.
 
-Xiaomi Mi 10 / 10 Pro was announced and released in February 2020.
+Nubia RedMagic 5G / 5S was announced and released in March / July 2020.
 
 ## Device specifications
 
-| Device       | Xiaomi Mi 10 / 10 Pro                       |
+| Device       | Nubia RedMagic 5G / 5S                      |
 | -----------: | :------------------------------------------ |
 | SoC          | Qualcomm SM8250 Snapdragon 865              |
 | CPU          | 8x Qualcomm® Kryo™ 585 up to 2.84GHz        |
 | GPU          | Adreno 650                                  |
-| Memory       | 8GB / 12GB RAM (LPDDR5)                     |
+| Memory       | 8GB / 12GB/ 16GB RAM (LPDDR5)               |
 | Shipped Android version | 10                               |
-| Storage      | 128GB / 256GB / 512GB UFS 3.0 flash storage |
-| Battery      | Non-removable Li-Po 4780mAh                 |
-| Dimensions   | 162.58 x 74.8 x 8.96 mm                     |
-| Display      | 2340 x 1080 (19.5:9), 6.67 inch             |
+| Storage      | 128GB / 256GB UFS 3.0 flash storage         |
+| Battery      | Non-removable Li-Po 4500mAh                 |
+| Dimensions   | 168.56 x 78 x 9.76 mm                       |
+| Display      | 2340 x 1080 (19.5:9), 6.65 inch             |
 
 ## Device picture
 
-![Xiaomi Mi 10](https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1581494372.61732687.jpg)
+![Nubia RedMagic 5G](https://ui.nubia.cn/upload/image/5e66e39ab9ea42.jpg)
 
 ## Features
 
 **Works**
 
 - Booting.
-- **Decryption** (Android 11)
 - ADB
 - MTP
 - OTG
 - Super partition functions
 - Vibration
 
-Mi 10 is using Dynamic Partition! We need update from TWRP.
+RedMagic 5G is using Dynamic Partition! We need update from TWRP.
 
 ## Compile
 
@@ -53,7 +52,7 @@ repo sync
 Then add these projects to .repo/manifest.xml:
 
 ```xml
-<project path="device/xiaomi/umi" name="sekaiacg/android_device_xiaomi_umi_TWRP" remote="github" revision="android-11" />
+<project path="device/nubia/NX659J" name="mouZhe/android_device_nubia_NX659J_a11test" remote="github" revision="main" />
 ```
 
 Use ccache
@@ -68,17 +67,18 @@ Finally execute these:
 ```
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch twrp_umi-eng
+lunch twrp_NX659J-eng
 mka recoveryimage
 ```
 
 To test it:
 
 ```
-fastboot boot out/target/product/umi/recovery.img
+fastboot boot out/target/product/NX659J/recovery.img
 ```
 
 ## Thanks
 - [FsCrypt fix by mauronofrio](https://github.com/mauronofrio/android_bootable_recovery)
 - [Decryption by bigbiff](https://github.com/bigbiff/android_bootable_recovery)
 - [Oneplus 8 TWRP by mauronofrio](https://github.com/mauronofrio/android_device_oneplus_instantnoodle_TWRP)
+- [Xiaomi 10 TWRP by sekaiacg](https://github.com/sekaiacg/android_device_xiaomi_umi_TWRP)
